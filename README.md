@@ -43,12 +43,7 @@ Then, run the following command:
 $ pod install
 ```
 ### Code Implementation
-First:
-```swift
-import SideMenu
-```
-
-Your main menu view controller like this:
+Your main menu view controller will look like this:
 ``` swift
 import SideMenu
 
