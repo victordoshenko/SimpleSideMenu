@@ -1,4 +1,4 @@
-# ▤ SideMenu
+# ▤ SimpleSideMenu
 [![Cocoapods compatible](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/CocoaPods)
 
 ### If you like SimpleSideMenu, give it a ★ at the top right of this page.
