@@ -25,10 +25,13 @@ To integrate SideMenu into your Xcode project using CocoaPods, specify it in you
 
 ```ruby
 source 'https://github.com/CocoaPods/Specs.git'
+
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'SideMenu'
+target 'SimpleSideMenu' do
+  pod 'SideMenu', '~> 6.0'
+end
 
 # For Swift 5 use:
 # pod 'SideMenu', '~> 6.0'
