@@ -40,3 +40,43 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+### Code Implementation
+First:
+```swift
+import SideMenu
+```
+
+Your main menu view controller like this:
+``` swift
+import SideMenu
+
+class MenuViewController: UITabBarController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.navigationController?.navigationBar.isTranslucent = false
+        let Menu = storyboard?.instantiateViewController(withIdentifier: "SideMenuNavigation") as? SideMenuNavigationController
+        Menu?.leftSide = true
+        Menu?.settings = makeSettings()
+        SideMenuManager.default.leftMenuNavigationController = Menu
+        SideMenuManager.default.addPanGestureToPresent(toView: view)
+        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: view)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let sideMenuNavigationController = segue.destination as? SideMenuNavigationController else { return }
+        sideMenuNavigationController.leftSide = true
+        sideMenuNavigationController.settings = makeSettings()
+    }
+    
+    private func makeSettings() -> SideMenuSettings {
+        let presentationStyle = SideMenuPresentationStyle.menuSlideIn
+        presentationStyle.backgroundColor = .gray
+        presentationStyle.presentingEndAlpha = 0.5
+        var settings = SideMenuSettings()
+        settings.presentationStyle = presentationStyle
+        return settings
+    }
+
+}
